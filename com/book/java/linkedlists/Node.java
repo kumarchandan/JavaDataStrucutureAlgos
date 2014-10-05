@@ -1,4 +1,4 @@
-package org.com.book.java.linkedlists;
+package com.book.java.linkedlists;
 
 public class Node {
 	
