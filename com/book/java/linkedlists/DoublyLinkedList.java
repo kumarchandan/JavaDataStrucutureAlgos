@@ -118,6 +118,13 @@ public class DoublyLinkedList {
 		}
 	}
 	
+	public boolean hasNext(DoublyNode node){
+		return node != trailor;
+	}
+	public boolean hasPrev(DoublyNode node){
+		return node != header;
+	}
+	
 	public void traverse(){
 		System.out.println("Printing all elements of the doubly linked list...");
 		

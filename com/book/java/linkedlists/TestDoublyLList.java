@@ -25,7 +25,10 @@ public class TestDoublyLList {
 		doublyList.traverse();
 		
 		doublyList.removeNode(dnode1);
+		
 		doublyList.traverse();
+		System.out.println(doublyList.hasNext(dnode5));
+		System.out.println(doublyList.hasNext(dnode5.getNext()));
 	}
 
 }
