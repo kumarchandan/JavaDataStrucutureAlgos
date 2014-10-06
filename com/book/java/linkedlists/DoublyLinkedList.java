@@ -5,9 +5,6 @@ public class DoublyLinkedList {
 	protected DoublyNode header;
 	protected DoublyNode trailor;
 	
-	protected DoublyNode head;
-	protected DoublyNode tail;
-	
 	protected int size;
 	
 	public DoublyLinkedList(){
@@ -40,6 +37,19 @@ public class DoublyLinkedList {
 			return null;
 		}
 		return trailor.getPrevious();
+	}
+	
+	public DoublyNode getPrev(DoublyNode node){
+		if(node == header){
+			return null;
+		}
+		return node.getPrevious();
+	}
+	
+	public DoublyNode getNext(DoublyNode node){
+		if(node == trailor)
+			return null;
+		return node.getNext();
 	}
 	
 	public void addBefore(DoublyNode existingNode, DoublyNode newNode){
@@ -135,5 +145,7 @@ public class DoublyLinkedList {
 			currentNode = currentNode.getNext();
 		}
 	}
+	
+	
 
 }

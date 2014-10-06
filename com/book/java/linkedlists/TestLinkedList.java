@@ -22,5 +22,6 @@ public class TestLinkedList {
 		System.out.println("Node size: "+singlyList.getSize()+" First elem in list: "+singlyList.getFirstElement()+" Last elem in list: "+singlyList.getLastElement());
 		
 //		singlyList.traverse();
+		
 	}
 }
