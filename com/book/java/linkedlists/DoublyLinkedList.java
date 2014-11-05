@@ -146,6 +146,9 @@ public class DoublyLinkedList {
 		}
 	}
 	
+	public void sort(DoublyNode dnode){
+		
+	}
 	
 
 }

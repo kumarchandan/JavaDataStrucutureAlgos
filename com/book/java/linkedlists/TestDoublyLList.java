@@ -30,5 +30,4 @@ public class TestDoublyLList {
 		System.out.println(doublyList.hasNext(dnode5));
 		System.out.println(doublyList.hasNext(dnode5.getNext()));
 	}
-
 }
