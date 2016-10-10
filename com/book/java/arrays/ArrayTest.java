@@ -28,6 +28,8 @@ public class ArrayTest {
 		String str = "What are you doing? ta da";
 		int result = ArrayTest.countVowel(str);
 		System.out.println("Number of vowels in this string is: "+result);
+		
+		
 		int num[] = new int[10];
 		Random rand = new Random();
 		rand.setSeed(System.currentTimeMillis());

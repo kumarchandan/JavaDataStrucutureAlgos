@@ -20,16 +20,19 @@ public class Student implements Person {
 		return id;
 	}
 	
+	@Override
 	public boolean equalTo(Person other) {
 		Student otherStudent = (Student) other;
 		return id.equals(otherStudent.getId());
 		
 	}
-
+	
+	@Override
 	public String getName() {
 		return name;
 	}
-
+	
+	@Override
 	public int getAge() {
 		return age;
 	}

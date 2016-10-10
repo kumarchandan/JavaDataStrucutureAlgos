@@ -1,6 +1,6 @@
 package com.book.java.linkedlists;
 
-public class Node {
+public final class Node {
 	
 	private String element;
 	private Node next;

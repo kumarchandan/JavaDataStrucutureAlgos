@@ -6,7 +6,8 @@
  */
 package com.book.java.stacks;
 
-import java.util.Arrays;
+import com.book.java.stacks.exception.EmptyStackException;
+import com.book.java.stacks.exception.FullStackException;
 
 /**
  * @author I077564
@@ -14,87 +15,77 @@ import java.util.Arrays;
  */
 public class ArrayStack<E> implements IStack<E> {
 	
-	protected int capacity;						// actual capacity of the array
-	public static final int CAPACITY = 1000; 	// default capacity of the array
-	protected E S[];							// Generic array used to implement stack
-	protected int top = -1;						// index for the top of the stack
+	protected int capacity;
+	public static final int CAPACITY = 1000;
+	protected int top = -1;
+	protected E[] S;
 	
-	public ArrayStack(){
+	
+	public ArrayStack() {
 		this(CAPACITY);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public ArrayStack(int capacity){
-		this.capacity = capacity;
+	public ArrayStack(int cap) {
+		super();
+		capacity = cap;
 		S = (E[]) new Object[capacity];
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.book.java.stacks.IStack#size()
-	 */
-	public int size() {
-		return top + 1;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.book.java.stacks.IStack#isEmpty()
-	 */
-	public boolean isEmpty() {
-		return (size() > 0);
-	}
-
-	/* (non-Javadoc)
-	 * @see com.book.java.stacks.IStack#top()
-	 */
-	public E top() throws EmptyStackException {
-		if(isEmpty()) throw new EmptyStackException("Stack is Empty.");
-		return S[top];
-	}
-
-	/* (non-Javadoc)
-	 * @see com.book.java.stacks.IStack#push(java.lang.Object)
-	 */
-	public void push(E element) {
-		if(size() == capacity) throw new FullStackException("Stack is full.");
-		S[++top] = element;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.book.java.stacks.IStack#pop()
-	 */
-	public E pop() throws EmptyStackException {
-		
-		E element;
-		if(isEmpty()) throw new EmptyStackException("Stack is Empty");
-		
-		element = S[top];
-		S[top--] = null;			// dereference S[top] for garbage collection
-		return element;
 	}
 
 	@Override
-	public String toString() {
-		return "ArrayStack [capacity=" + capacity + ", S=" + Arrays.toString(S)
-				+ ", top=" + top + "]";
+	public int size() {
+		return (top + 1);
 	}
-	
-	public void status(String op, Object element){
-		System.out.print("----> "+ op);
-	}
-	
-	public static void main(String[] args){
-		Object o; 
-		ArrayStack<Integer> A = new ArrayStack<Integer>(); 
-		A.status( "new ArrayStack<Integer> A", null); 
-		A.push(7); 
-		A.status("A. push (7) ", null); 
-		o = A.pop(); 
 
-		A.push(9); 
-		o = A.pop(); 
-		A.status(" A. pope) ", 0); 
-		ArrayStack<String> B =  new ArrayStack<String>();
-		B.push("Alice"); 
-		B.push("Eve"); 
+	@Override
+	public boolean isEmpty() {
+		return (top < 0);
 	}
+
+	@Override
+	public E top() throws EmptyStackException {
+		return S[top];
+	}
+
+	@Override
+	public void push(E element) throws FullStackException {
+		if (size() == capacity) {
+			throw new FullStackException("Stack is Full");
+		}
+		S[++top] = element;
+	}
+
+	@Override
+	public E pop() throws EmptyStackException {
+		E element;
+		if(isEmpty()) {
+			throw new EmptyStackException("Empty Stack");
+		}
+		element = S[top];
+		S[top--] = null;
+		return element;
+	}
+	
+	public void toStr() {
+		System.out.println("Elements in Array");
+		for (E element : S) {
+			System.out.println(element);
+		}
+	}
+	
+	public static void main(String args[]) {
+		
+		ArrayStack<Integer> arr = new ArrayStack<Integer>(8);
+		arr.push(3);
+		arr.push(23);
+		arr.push(2);
+		arr.push(12);
+		arr.toStr();
+		
+		arr.pop();
+		arr.toStr();
+		arr.pop();
+		arr.toStr();
+		
+	}
+	
 }

@@ -10,7 +10,6 @@ public class SingleObject {
 	private SingleObject(){
 		
 	}
-	
 	// Get the only object available
 	
 	public static SingleObject getsingleinstance(){
@@ -19,5 +18,10 @@ public class SingleObject {
 	
 	public void showMessage(){
 		System.out.println("Hello World!");
+	}
+	
+	public static void main(String args[]) {
+		SingleObject abc = new SingleObject();
+		System.out.println(abc);
 	}
 }

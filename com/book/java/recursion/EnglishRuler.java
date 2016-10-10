@@ -33,6 +33,6 @@ public class EnglishRuler {
 	}
 	
 	public static void main(String[] args){
-		drawRuler(3, 2);
+		drawRuler(3, 4);
 	}
 }
